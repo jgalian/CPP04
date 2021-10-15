@@ -1,18 +1,18 @@
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "Animal's class default constructor called" << std::endl;
+	std::cout << "WrongAnimal's class default constructor called" << std::endl;
 	return ;
 }
 
-Animal::Animal( const Animal & src )
+WrongAnimal::WrongAnimal( const WrongAnimal & src )
 {
-	std::cout << "Animal's class copy constructor called" << std::endl;
+	std::cout << "WrongAnimal's class copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
@@ -21,9 +21,9 @@ Animal::Animal( const Animal & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Animal's class destructor called" << std::endl;
+	std::cout << "WrongAnimal's class destructor called" << std::endl;
 	return ;
 }
 
@@ -31,7 +31,7 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &	Animal::operator = ( Animal const & rhs )
+WrongAnimal &	WrongAnimal::operator = ( WrongAnimal const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -44,7 +44,7 @@ Animal &	Animal::operator = ( Animal const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound(void) const
+void	WrongAnimal::makeSound(void) const
 {
 	std::cout << "-----" << std::endl;
 }
@@ -53,7 +53,7 @@ void	Animal::makeSound(void) const
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string		Animal::getType(void) const
+std::string		WrongAnimal::getType(void) const
 {
 	return (this->type);
 }
