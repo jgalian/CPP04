@@ -8,6 +8,7 @@ Cat::Cat()
 {
 	std::cout << "Cat's class default constructor called" << std::endl;
 	this->type = "Cat";
+	this->_brain = new Brain;
 	return ;
 }
 
@@ -25,6 +26,7 @@ Cat::Cat( const Cat & src )
 Cat::~Cat()
 {
 	std::cout << "Cat's class destructor called" << std::endl;
+	delete this->_brain;
 	return ;
 }
 
@@ -37,6 +39,7 @@ Cat &	Cat::operator = ( Cat const & rhs )
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
+		this->_brain = new Brain;
 	}
 	return *this;
 }

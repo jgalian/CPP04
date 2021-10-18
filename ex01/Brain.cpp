@@ -1,61 +1,59 @@
-#include "WrongAnimal.hpp"
+#include "Brain.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongAnimal::WrongAnimal()
+Brain::Brain()
 {
-	std::cout << "WrongAnimal's class default constructor called" << std::endl;
+	std::cout << "Brain's class default constructor called" << std::endl;
+	for(size_t i = 0; i < 100; i++)
+		this->_ideas[i] = "idea" + std::to_string(i);
 	return ;
 }
 
-WrongAnimal::WrongAnimal( const WrongAnimal & src )
+Brain::Brain( const Brain & src )
 {
-	std::cout << "WrongAnimal's class copy constructor called" << std::endl;
+	std::cout << "Brain's class copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
+
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-WrongAnimal::~WrongAnimal()
+Brain::~Brain()
 {
-	std::cout << "WrongAnimal's class destructor called" << std::endl;
+	std::cout << "Brain's class destructor called" << std::endl;
 	return ;
 }
+
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-WrongAnimal &	WrongAnimal::operator = ( WrongAnimal const & rhs )
+Brain &		Brain::operator = ( Brain const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->type = rhs.getType();
+		for (size_t i = 0; i < 100; i++)
+		this->_ideas[i] = rhs._ideas[i];
 	}
 	return *this;
 }
+
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	WrongAnimal::makeSound(void) const
-{
-	std::cout << "-----" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string		WrongAnimal::getType(void) const
-{
-	return (this->type);
-}
 
 /* ************************************************************************** */

@@ -1,7 +1,7 @@
 NAME =		polymorphism
 CC =		clang++
 CPPFLAGS =	-Wall -Wextra -Werror -Wshadow -Wno-shadow -c -std=c++98
-SRCS =		main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS =		main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJS =		$(SRCS:.cpp=.o)
 OBJ_PATH = 	./obj
 
