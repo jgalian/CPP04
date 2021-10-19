@@ -14,6 +14,8 @@ class Brain
 
 		Brain &		operator = ( Brain const & rhs );
 
+		void		printOneIdea(int n) const;
+
 	private:
 
 		std::string _ideas[100];

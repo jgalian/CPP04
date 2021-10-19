@@ -18,6 +18,8 @@ class Cat : public Animal
 
 		void		makeSound(void) const;
 
+		void	printOneIdea(int) const;
+
 	private:
 
 		Brain *_brain;

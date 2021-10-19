@@ -7,13 +7,14 @@
 Animal::Animal()
 {
 	std::cout << "Animal's class default constructor called" << std::endl;
+	this->type = "Not defined";
 	return ;
 }
 
 Animal::Animal( const Animal & src )
 {
 	std::cout << "Animal's class copy constructor called" << std::endl;
-	*this = src;
+	this->type = src.getType();
 	return ;
 }
 
@@ -33,11 +34,12 @@ Animal::~Animal()
 
 Animal &	Animal::operator = ( Animal const & rhs )
 {
+	std::cout << "Animal's class asignation operator called" << std::endl;
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
 	}
-	return *this;
+	return (*this);
 }
 
 /*
@@ -56,6 +58,11 @@ void	Animal::makeSound(void) const
 std::string		Animal::getType(void) const
 {
 	return (this->type);
+}
+
+void			Animal::setType(std::string newType)
+{
+	this->type = newType;
 }
 
 /* ************************************************************************** */

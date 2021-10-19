@@ -15,7 +15,9 @@ Cat::Cat()
 Cat::Cat( const Cat & src )
 {
 	std::cout << "Cat's class copy constructor called" << std::endl;
-	*this = src;
+	this->type = src.getType();
+	this->_brain = new Brain;
+	*this->_brain = *src._brain;
 	return ;
 }
 
@@ -36,10 +38,19 @@ Cat::~Cat()
 
 Cat &	Cat::operator = ( Cat const & rhs )
 {
+	std::cout << "Cat's class asignation operator called" << std::endl;
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		this->_brain = new Brain;
+
+		//this->_brain = rhs._brain; // -> Shallow copy
+
+		if (this->_brain)
+		{
+			delete this->_brain;
+			this->_brain = new Brain;		// -> Deep copy
+			*this->_brain = *rhs._brain;
+		}
 	}
 	return *this;
 }
