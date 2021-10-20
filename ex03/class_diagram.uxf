@@ -1,0 +1,87 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>+ use( target : ICharacter &amp; ) : </help_text><element><id>UMLClass</id><coordinates><x>30</x><y>275</y><w>280</w><h>250</h></coordinates><panel_attributes>AMateria
+--
+
+type : string
+
+--
+
++ AMateria()
++ AMateria( type : string const &amp; )
++ AMateria( src : AMateria const &amp; )
++ ~AMateria()
+
++ operator = ( rhs : AMateria const &amp; ) : AMateria &amp;
+
++ getType()const : string const &amp;
++ clone()const : AMateria*  = 0
++ use( target : ICharacter &amp; ) :   = 0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>445</y><w>230</w><h>190</h></coordinates><panel_attributes>Cure : AMateria
+--
+
+--
+
++ Cure()
++ Cure( src : Cure const &amp; )
++ ~Cure()
+
++ operator = ( rhs : Cure const  ) : Cure &amp;
+
++ clone()const : AMateria *
++ use( target : ICharacter &amp; ) : </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>235</y><w>230</w><h>190</h></coordinates><panel_attributes>Ice : AMateria
+--
+
+--
+
++ Ice()
++ Ice( src : Ice const &amp; )
++ ~Ice()
+
++ operator = ( rhs : Ice const  ) : Ice &amp;
+
++ clone()const : AMateria *
++ use( target : ICharacter &amp; ) : </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLInterface</id><coordinates><x>20</x><y>5</y><w>320</w><h>150</h></coordinates><panel_attributes>IMateriaSource
+
+--
+
++ ~IMateriaSource()
++ learnMateria( m : AMateria *) :   = 0
++ createMateria( type : string const &amp; )  : AMateria *  = 0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLInterface</id><coordinates><x>820</x><y>0</y><w>240</w><h>180</h></coordinates><panel_attributes>ICharacter
+
+--
+
++ ~ICharacter()
++ getName()const : string const &amp;   = 0
++ equip( m : AMateria * ) :   = 0
++ unequip( idx : int ) :  = 0
++ use( idx : int, target : ICharacter &amp;) :  = 0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>780</x><y>260</y><w>300</w><h>290</h></coordinates><panel_attributes>Character : ICharacter
+--
+
+- name : string
+- inventory[4] : AMateria
+
+--
+
++ Character()
++ Character( name : string )
++ Character( src : Character const &amp; )
++ ~Character()
+
++ operator  = ( rhs : Character const &amp; ) : Character &amp;
+
++ getName()const : string const &amp;
++ equip( m : AMateria * ) :
++ unequip( idx : int ) :
++ use( idx : int, target : ICharacter &amp;) :  </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>0</y><w>290</w><h>220</h></coordinates><panel_attributes>MateriaSource : IMateriaSource
+--
+
+source[4] : AMateria *
+
+--
+
++ MateriaSource()
++ MateriaSource ( src : MateriaSource const &amp; )
++ ~MateriaSource()
+
++ operator = ( rhs : MateriaSource const &amp; ) : Materia &amp;
+
++ learnMateria( m : AMateria *) :
++ createMateria( type : string const &amp; )  : AMateria *</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>930</x><y>180</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>90</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;70;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>340</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>490</y><w>100</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;80;30</additional_attributes></element></diagram>
