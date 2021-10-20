@@ -5,7 +5,7 @@
 #include "Dog.hpp"
 
 /*
-* In this exercice we have learned:
+* In this exercice we've learned:
 *	- When a class have a virtual method, it also needs a virtual destructor. If not, compiler will probably complain.
 *	  This is necessary because an object could be instanciated as both, parent and child. And if the object is deleted
 *	  as a father and destructor is not declared as virtual, it is going to use the father's destructor and the son's
@@ -20,62 +20,16 @@
 
 int main()
 {
-	// {
-	// 	Cat gato1;
-	// 	Cat gato2;
-
-	// 	gato2 = gato1;
-	// 	std::cout << std::endl;
-
-
-	// }
-
-
-	// {
-	// 	Animal * gato1 = new Cat;
-	// 	std::cout << std::endl;
-	// 	Animal * gato2 = new Cat;
-	// 	std::cout << std::endl;
-	// 	*gato2 = *gato1;
-	// 	std::cout << std::endl;
-	// 	std::cout << gato1 << " " << gato2 << std::endl;
-	// 	std::cout << std::endl;
-	// 	delete gato1;
-	// 	std::cout << std::endl;
-	// 	delete gato2;
-	// }
-
-
-	// {
-	// 	Animal * gato = new Cat;
-	// 	std::cout << std::endl;
-	// 	gato->makeSound();
-	// 	std::cout << std::endl;
-	// 	delete gato;
-	// }
-	// {
-	// 	Cat *a = new Cat();
-	// 	std::cout << std::endl;
-	// 	Cat *tmp = new Cat();
-	// 	std::cout << std::endl;
-	// 	a->setType("hola");
-	// 	*tmp = *a;
-	// 	std::cout << std::endl;
-	// 	delete a;
-	// 	std::cout << std::endl;
-	// 	std::cout << tmp->getType() << std::endl;
-	// 	tmp->makeSound();
-	// 	std::cout << std::endl;
-	// 	delete tmp;
-	// 	std::cout << std::endl;
-	// }
-	// std::cout << "---  Array  ---" << std::endl;
-	// std::cout << std::endl;
 	{
-		Animal *animals[4];
-		for (int i = 0; i < 4; i++)
+		int	n = 4;
+
+		std::cout << std::endl;
+		std::cout << "//////////////////////////////////////////////" << std::endl;
+		std::cout << std::endl;
+		Animal *animals[n];
+		for (int i = 0; i < n; i++)
 		{
-			if (i < 2)
+			if (i < n / 2)
 			{
 				animals[i] = new Dog();
 				std::cout << std::endl;
@@ -93,15 +47,40 @@ int main()
 
 		std::cout << std::endl;
 		Animal otherAnimal(*animals[1]);
-		//otherAnimal = *animals[1];
 		std::cout << "otherAnimal.getType() = " << otherAnimal.getType() << std::endl;
 		std::cout << "otherAnimal.makeSound() = "; otherAnimal.makeSound();
 
 		std::cout << std::endl;
-		for (int i = 0; i < 10; i++)
+		Animal otherAnimal2;
+		otherAnimal2 = *animals[2];
+		std::cout << "otherAnimal2.getType() = " << otherAnimal2.getType() << std::endl;
+		std::cout << "otherAnimal2.makeSound() = "; otherAnimal2.makeSound();
+
+		std::cout << std::endl;
+		for (int i = 0; i < n; i++)
 		{
 			delete animals[i];
 			std::cout << std::endl;
 		}
 	}
+	{
+		std::cout << std::endl;
+		std::cout << "//////////////////////////////////////////////" << std::endl;
+		std::cout << std::endl;
+
+		Cat cat;
+		std::cout << std::endl;
+		Cat cat2;
+		std::cout << std::endl;
+		cat2 = cat;
+		std::cout << std::endl;
+		cat2.getIdea(50);
+		std::cout << "cat2.getType() = " << cat2.getType() << std::endl;
+		std::cout << "cat2.makeSound() = "; cat2.makeSound();
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << "//////////////////////////////////////////////" << std::endl;
+	std::cout << std::endl;
+	system("leaks brain");
 }

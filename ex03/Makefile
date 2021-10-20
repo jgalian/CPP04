@@ -1,6 +1,6 @@
-NAME =	brain
+NAME =	materia
 
-SRC =	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRC =	main.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 INC = -I.
