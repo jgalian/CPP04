@@ -10,10 +10,10 @@ Ice::Ice()
 	return ;
 }
 
-Ice::Ice( const Ice & src )
+Ice::Ice( const Ice & src ) : AMateria("ice")
 {
 	std::cout << "Ice's COPY CONSTRUCTOR called" << std::endl;
-	this->type = src.getType();
+	this->_type = src.getType();
 	return ;
 }
 
@@ -36,7 +36,7 @@ Ice &			Ice::operator=( Ice const & rhs )
 	std::cout << "Ice's OPERATOR = called" << std::endl;
 	if ( this != &rhs )
 	{
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	}
 	return *this;
 }
@@ -53,7 +53,7 @@ Ice &			Ice::operator=( Ice const & rhs )
 
 	void		Ice::use( ICharacter & target )
 	{
-		std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
+		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 	}
 
 /*

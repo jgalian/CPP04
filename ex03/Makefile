@@ -1,6 +1,7 @@
 NAME =	materia
 
-SRC =	main.cpp
+SRC =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp \
+		ICharacter.cpp IMateriaSource.cpp MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 INC = -I.

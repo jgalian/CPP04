@@ -1,4 +1,4 @@
-#include "IMateriaSource.hpp"
+#include "ICharacter.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -8,11 +8,11 @@
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-// IMateriaSource::~IMateriaSource()
-// {
-// 	std::cout << "IMateriaSource DEFAULT CONSTRUCTOR called" << std::endl;
-// 	return ;
-// }
+ICharacter::~ICharacter()
+{
+	std::cout << "ICharacter DEFAULT CONSTRUCTOR called" << std::endl;
+	return ;
+}
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------

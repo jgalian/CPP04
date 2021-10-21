@@ -10,10 +10,10 @@ Cure::Cure()
 	return ;
 }
 
-Cure::Cure( const Cure & src )
+Cure::Cure( const Cure & src ) : AMateria("cure")
 {
 	std::cout << "Cure's COPY CONSTRUCTOR called" << std::endl;
-	this->type = src.getType();
+	this->_type = src.getType();
 	return ;
 }
 
@@ -36,7 +36,7 @@ Cure &			Cure::operator=( Cure const & rhs )
 	std::cout << "Cure's OPERATOR = called" << std::endl;
 	if ( this != &rhs )
 	{
-		this->type = rhs.getType();
+		this->_type = rhs.getType();
 	}
 	return *this;
 }
@@ -53,7 +53,7 @@ Cure &			Cure::operator=( Cure const & rhs )
 
 	void		Cure::use( ICharacter & target )
 	{
-		std::cout << "* heals " << target << "'s wounds *" << std::endl;
+		std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 	}
 
 /*
