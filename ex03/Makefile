@@ -1,12 +1,12 @@
 NAME =	materia
 
-SRC =	main.cpp 
+SRC =	main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 INC = -I.
 
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 $(INC) $(SANITIZE) $(DEBUG)
-CXX = clang++
+CXX = c++
 
 SANITIZE =
 SANITIZE_FLAGS = -g3 -fsanitize=address
