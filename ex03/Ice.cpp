@@ -4,16 +4,15 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice()
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << "Ice's DEFAULT CONSTRUCTOR called" << std::endl;
 	return ;
 }
 
-Ice::Ice( const Ice & src ) : AMateria("ice")
+Ice::Ice( const Ice & src ) : AMateria(src)
 {
 	std::cout << "Ice's COPY CONSTRUCTOR called" << std::endl;
-	this->_type = src.getType();
 	return ;
 }
 
@@ -59,6 +58,5 @@ Ice &			Ice::operator=( Ice const & rhs )
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
 
 /* ************************************************************************** */

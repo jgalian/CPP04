@@ -23,8 +23,10 @@ Character::Character( const Character & src )
 {
 	std::cout << "Character's COPY CONSTRUCTOR called" << std::endl;
 	this->_name = src.getName();
+
 	for (int i = 0; i < 4; i++)
-		*this->_inventory[i] = *src._inventory[i];
+		if (src._inventory[i])
+			this->_inventory[i] = src._inventory[i]->clone();
 }
 
 /*
@@ -56,7 +58,7 @@ Character &		Character::operator = ( Character const & rhs )
 				delete this->_inventory[i];
 		}
 		for (int i = 0; i < 4; i++)
-			*this->_inventory[i] = *rhs._inventory[i];
+			this->_inventory[i] = rhs._inventory[i]->clone();
 	}
 	return *this;
 }
@@ -70,19 +72,25 @@ void		Character::equip( AMateria * m )
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] == NULL)
+		{
 			this->_inventory[i] = m;
+			break ;
+		}
 	}
 }
 
 void		Character::unequip( int idx )
 {
-	if (idx >= 0 && idx <= 4)
+	if (idx >= 0 && idx < 4)
+	{
+		delete this->_inventory[idx];
 		this->_inventory[idx] = NULL;
+	}
 }
 
 void		Character::use( int idx, ICharacter & target)
 {
-	if (idx >= 0 && idx <= 4)
+	if (idx >= 0 && idx < 4 && this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 }
 

@@ -1,12 +1,12 @@
-NAME =	materia
+NAME =	materia2
 
 SRC =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp \
-		ICharacter.cpp IMateriaSource.cpp MateriaSource.cpp
+		MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 INC = -I.
 
-CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 $(INC) $(SANITIZE) $(DEBUG)
+CXXFLAGS = -Wall -Wextra -Werror -g -Wshadow -std=c++98 $(INC) $(SANITIZE) $(DEBUG)
 CXX = c++
 
 SANITIZE =

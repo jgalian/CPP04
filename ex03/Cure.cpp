@@ -4,16 +4,15 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Cure::Cure()
+Cure::Cure() : AMateria("cure")
 {
 	std::cout << "Cure's DEFAULT CONSTRUCTOR called" << std::endl;
 	return ;
 }
 
-Cure::Cure( const Cure & src ) : AMateria("cure")
+Cure::Cure( const Cure & src ) : AMateria(src)
 {
 	std::cout << "Cure's COPY CONSTRUCTOR called" << std::endl;
-	this->_type = src.getType();
 	return ;
 }
 
@@ -31,7 +30,7 @@ Cure::~Cure()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cure &			Cure::operator=( Cure const & rhs )
+Cure &			Cure::operator = ( Cure const & rhs )
 {
 	std::cout << "Cure's OPERATOR = called" << std::endl;
 	if ( this != &rhs )
@@ -47,8 +46,7 @@ Cure &			Cure::operator=( Cure const & rhs )
 
 	AMateria *	Cure::clone() const
 	{
-		AMateria * tmp = new Cure(*this);
-		return (tmp);
+		return (new Cure(*this));
 	}
 
 	void		Cure::use( ICharacter & target )
@@ -59,6 +57,5 @@ Cure &			Cure::operator=( Cure const & rhs )
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
 
 /* ************************************************************************** */
