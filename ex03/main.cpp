@@ -8,14 +8,8 @@
 #include "MateriaSource.hpp"
 #include "AMateria.hpp"
 
-void	check_leaks()
-{
-	system("leaks materia2");
-}
-
 int main()
 {
-	//atexit(check_leaks);
 	std::cout << std::endl;
 	std::cout << "/////////////////////////////////////////" << std::endl;
 	std::cout << std::endl;
