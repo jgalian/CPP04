@@ -1,24 +1,35 @@
-NAME =		polymorphism
-CC =		clang++
-CPPFLAGS =	-Wall -Wextra -Werror -Wshadow -Wno-shadow -c -std=c++98
-SRCS =		main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
-OBJS =		$(SRCS:.cpp=.o)
-OBJ_PATH = 	./obj
+NAME =	animal
+
+SRC =	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+
+OBJ = $(SRC:.cpp=.o)
+INC = -I.
+
+CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 $(INC) $(SANITIZE) $(DEBUG)
+CXX = c++
+
+SANITIZE =
+SANITIZE_FLAGS = -g3 -fsanitize=address
+DEBUG =
+DEBUG_FLAGS = -g
 
 all: $(NAME)
 
-$(NAME): $(SRCS)
-	mkdir -p $(OBJ_PATH)
-	$(CC) $(CPPFLAGS) $^
-	mv $(OBJS) $(OBJ_PATH)
-	$(CC) $(OBJ_PATH)/* -o $@
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+sanitize: SANITIZE += $(SANITIZE_FLAGS)
+sanitize: fclean all
+
+debug: DEBUG += $(DEBUG)
+debug: fclean all
 
 clean:
-	rm -rf $(OBJ_PATH)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: clean fclean re all
+.PHONY: all clean fclean re
